@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background-image: url('thematrix.jpg');
+    background-image: url('../img/thematrix.jpg');
 }
 
 #app {

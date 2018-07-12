@@ -55,10 +55,11 @@ Game.prototype.checkGuess = function(){
         return "You have already guessed that number.";
     }
     this.pastGuesses.push(this.playersGuess);
+    $('.guesses li:nth-child('+this.pastGuesses.length+')').text(this.playersGuess);
     if (this.pastGuesses.length === 5){
         $('#hint, #submit').prop("disabled", true);
-        $('#subtitle').text("Press the Reset button to try again.");
-        return "You Lose.";
+        $('#subtitle').text("Click the Reset button to try again.");
+        return `You Lose. The winning number was ${this.winningNumber}`;
     }
     else {
         var diff = this.difference();
@@ -79,10 +80,7 @@ Game.prototype.checkGuess = function(){
 }
 
 Game.prototype.provideHint = function(){
-    let deck = [];
-    deck.push(this.winningNumber);
-    deck.push(generateWinningNumber());
-    deck.push(generateWinningNumber());
+    let deck = [this.winningNumber, generateWinningNumber(), generateWinningNumber()];
     shuffle(deck);
     return deck;
 }
@@ -108,7 +106,7 @@ $(document).ready(function(){
 
     //player input keypress functionality here
     $('#player-input').keypress(function(e){
-        if (e.which === 13){ //e.which means that the enter button was hit
+        if (e.which === 13){ //e.which === 13 means that the enter button was hit
             GuessToValue(game);
         }
     })
@@ -117,6 +115,7 @@ $(document).ready(function(){
     $('#hint').click(function(ev){
         var hints = game.provideHint();
         $('#title').text(`Try the following values: ${hints[0]}, ${hints[1]}, ${hints[2]}`);
+        $('#hint').prop("disabled", true);
     });
 
     //reset button click functionality here
@@ -124,7 +123,7 @@ $(document).ready(function(){
         game = newGame();
         $('#title').text('Play the Guessing Game!');
         $('#subtitle').text('Guess a number between 1-100!');
-        $('#guess').text('_');
-        $('#hint, submit').prop("disabled", false);
+        $('.guess').text('_');
+        $('#hint, #submit').prop("disabled", false);
     });
 });

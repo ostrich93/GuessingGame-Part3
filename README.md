@@ -1,0 +1,1 @@
+A guessing game that implements jQuery for Fullstack Academy's Foundations program. The player can submit 5 guesses between 1 and 100 before they lose. Hints to the answer can be granted with the hint button, but can only be clicked once.
