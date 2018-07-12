@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Guessing Game</title>
+
+    <!-- Bootstrap and CSS here-->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+  <body>
+
+    <section id='app' class='center container'>
+        <header>
+            <!-- Title and subtitles! -->
+            <h1 id='title'>
+                Play the Guessing Game!
+            </h1>
+            <h3 id='subtitle'>
+                Guess a number between 1-100!
+            </h3>
+        </header>
+        <section id='main'>
+            <div id='input-parent'><!-- input and button have circular shape-->
+                <input id='player-input' class='center' placeholder="#" maxlength='3' autofocus=autofocus></input>
+                <button id='submit' class='btn btn-success'>Go!</button>
+            </div>
+            <div class='guesses'>
+                <!-- unordered list of guesses. Each is an inline block -->
+                <ul>
+                    <li class="guess">_</li>
+                    <li class="guess">_</li>
+                    <li class="guess">_</li>
+                    <li class="guess">_</li>
+                    <li class="guess">_</li>
+                </ul>
+            </div>
+            <div class='menu-btns'>
+                <!-- reset and hint buttons -->
+                <button id='reset' class='btn btn-large center'>Reset</button>
+                <button id='hint' class='btn btn-large center'>Hint</button>
+            </div>
+        </section>
+    </section>
+
+    <footer class='center'>
+          <div class='row'>
+              <div class='col-sm-4'>
+                <img id='fsLogo' src='img/fa-logo@2x.png'></img>
+              </div>
+
+              <div class='col-sm-4' style="padding-top: 5px">
+                <h4>Project by Alex Morson</h4>
+            </div>
+
+              <div class='col-sm-4'>
+                <img id='graceLogo' src='img/grace_hopper_academy.png'></img>
+              </div>
+          </div>
+    </footer>
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    
+  </body>
+</html>
